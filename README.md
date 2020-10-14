@@ -51,6 +51,11 @@ this packaging is jar, so jar will be created where the project is situated unde
 
 mvn test
 
+## Notes
+
+Tests can be enhanced with parameterized tests, but currently developer is not experienced very well with them. Test coverage should be 100%, but Intellij is saying that line coverage is almost 90% and its because he is saying that curly brackets and some javadoc is not tested (for some reason, maybe a bug i dont know).
+Main method is not tested and it shouldn't be, but in my case there is almost to zero logic inside main method, so i have decided to not test it.
+
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
