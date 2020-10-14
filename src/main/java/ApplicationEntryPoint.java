@@ -13,7 +13,8 @@ public class ApplicationEntryPoint {
         System.out.println("Enter numbers in following format 'Xp Ys Zd' and appropriate operator '+ - * /' !");
         System.out.print("Convert: ");
         while (in.hasNext()) {
-            String input = in.nextLine();
+            String input = in.nextLine().trim();
+
             if (input.equalsIgnoreCase("Exit")) {
                 break;
             }
@@ -23,6 +24,7 @@ public class ApplicationEntryPoint {
         //Closing Scanner before shut down
         in.close();
     }
+
     /**
      * Method for validation of input
      * @param input Input provide by user

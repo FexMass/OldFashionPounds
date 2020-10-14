@@ -8,9 +8,11 @@ public class Amount {
     private final int pence;
 
     public Amount(String pounds, String shillings, String pence) {
+        //validation for each number if contains "psd" as required format of entry
         if (!pounds.endsWith("p") || !shillings.endsWith("s") || !pence.endsWith("d")) {
             throw new IllegalArgumentException();
         }
+        //converting to Integer to calculate
         this.pounds = Integer.parseInt(pounds.replace("p", ""));
         this.shillings = Integer.parseInt(shillings.replace("s", ""));
         this.pence = Integer.parseInt(pence.replace("d", ""));
