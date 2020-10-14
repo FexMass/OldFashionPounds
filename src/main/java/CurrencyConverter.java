@@ -71,7 +71,6 @@ public class CurrencyConverter {
             sb.append(amountReminder.getPence()).append("d");
         }
         sb.append(")");
-
         return sb;
     }
 
