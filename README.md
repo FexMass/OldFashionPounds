@@ -33,6 +33,8 @@ Another Example DIVISION: 18p 16s 1d / 15 = 1p 5s 0d   (1s 1d) (1 Shillings and 
 
 The library should be able to receive and produce strings in the format "Xp Ys Zd", as in the examples
 
+Typing exit in console, application will close.
+
 ## Getting Started
 
 Clone the project to your machine and put it in some directory of preference.
