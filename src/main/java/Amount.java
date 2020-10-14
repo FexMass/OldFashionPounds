@@ -38,7 +38,7 @@ public class Amount {
 
     @Override
     public String toString() {
-        return  "Result: " +
+        return "Result: " +
                 pounds + "p " +
                 shillings + "s " +
                 pence + "d";

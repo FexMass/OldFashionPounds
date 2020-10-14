@@ -10,60 +10,81 @@ public class CurrencyConverter {
 
     /**
      * Method to calculate multiplication in format (Xp Ys Zd + Xp Ys Zd)
+     *
      * @param amount1 First filled amount model with values
      * @param amount2 Second filled amount model with values
      * @return formatted result
      */
     public static String sum(Amount amount1, Amount amount2) {
-        //5p 17s 8d + 3p 4s 10d = 9p 2s 6d
+        if (!(amount1.getPounds() >= 0 && amount1.getShillings() >= 0 &&
+                amount1.getPence() >= 0 && amount2.getPounds() >= 0 &&
+                amount2.getShillings() >= 0 && amount2.getPence() >= 0)) {
+            return "Number/s can't be negative";
+        }
         return convertToAmount(convertToPence(amount1) + convertToPence(amount2)).toString();
     }
 
     /**
      * Method to calculate subtraction between two values in format (Xp Ys Zd  - Xp Ys Zd)
+     *
      * @param amount1 First filled amount model with values
      * @param amount2 Second filled amount model with values
-     * @return formatted result
      */
     public static String subtract(Amount amount1, Amount amount2) {
-        //5p 17s 8d - 3p 4s 10d = 2p 12s 10d
+        if (!(amount1.getPounds() >= 0 && amount1.getShillings() >= 0 &&
+                amount1.getPence() >= 0 && amount2.getPounds() >= 0 &&
+                amount2.getShillings() >= 0 && amount2.getPence() >= 0)) {
+            return "Number/s can't be negative";
+        }
+        if (!(convertToPence(amount1) > convertToPence(amount2))) {
+            return "Second amount can't be bigger than first amount";
+        }
         return convertToAmount(convertToPence(amount1) - convertToPence(amount2)).toString();
     }
 
     /**
      * Method to calculate multiplication in format (Xp Ys Zd * M)
-     * @param amount Filled amount model with values
+     *
+     * @param amount     Filled amount model with values
      * @param multiplier fixed multiplier
      * @return formatted result
      */
     public static String multiply(Amount amount, int multiplier) {
-        //5p 17s 8d * 2 = 11p 15s 4d
+        if (!(amount.getPounds() >= 0 && amount.getPence() >= 0 &&
+                amount.getShillings() >= 0 && multiplier >= 0)) {
+            return "Number/s can't be negative";
+        }
         return convertToAmount(convertToPence(amount) * multiplier).toString();
     }
 
     /**
      * Method to calculate division in format (Xp Ys Zd / D)
-     * @param amount Filled amount model with values
+     *
+     * @param amount  Filled amount model with values
      * @param divider fixed divider
      * @return formatted result
      */
     public static String divide(Amount amount, int divider) {
-        //5p 17s 8d / 3 = 1p 19s 2d (2d) (2 pence as remainder)
-        //18p 16s 1d / 15 = 1p 5s 0d   (1s 1d) (1 Shillings and 1 pence as remainder)
-        //5p 8s 11d / 3 = 1p 16s 4d
-        //the remainder should be represented between parenthesis)
+        if (!(amount.getPounds() >= 0 && amount.getPence() >= 0 &&
+                amount.getShillings() >= 0 && divider >= 0)) {
+            return "Number/s can't be negative";
+        }
         return convertToAmount(convertToPence(amount) / divider).toString() + divideFormatResult(convertToAmount(convertToPence(amount) % divider));
     }
 
     /**
      * Method for representing reminders in proper way
-     * @param amountReminder Object which holds information about reminders from calculation
+     *
+     * @param amountReminder which holds information about reminders from calculation
      * @return Formatted string
      */
     public static StringBuilder divideFormatResult(Amount amountReminder) {
         //ex. (1s 1d) (reminders inside parenthesis)
         StringBuilder sb = new StringBuilder();
         sb.append(" (");
+        if (!(amountReminder.getPounds() == 0)) {
+            sb.append(amountReminder.getPounds()).append("p ");
+        }
         if (!(amountReminder.getShillings() == 0)) {
             sb.append(amountReminder.getShillings()).append("s ");
         }
@@ -76,6 +97,7 @@ public class CurrencyConverter {
 
     /**
      * Method for converting everything to pennies
+     *
      * @param amount Object to be converted
      * @return total amount of pennies
      */
@@ -86,6 +108,7 @@ public class CurrencyConverter {
 
     /**
      * Method for keep check of reminders and converting everything to pennies
+     *
      * @param pence Amount of pennies
      * @return Object filled with values to be printed
      */
@@ -100,6 +123,5 @@ public class CurrencyConverter {
         int shillingRemainderInPence = poundRemainderInPence % 12;
 
         return new Amount(pounds, shillings, shillingRemainderInPence);
-
     }
 }

@@ -1,8 +1,10 @@
 import java.util.Scanner;
+
 /**
  * Library containing logic for calculation of basic mathematical operations ( + * - /) for
  * "Old money" which means pounds, shillings and pence.
  * This Class contains main method for input and handleInput method for input validation
+ *
  * @author Mass
  */
 public class ApplicationEntryPoint {
@@ -27,6 +29,7 @@ public class ApplicationEntryPoint {
 
     /**
      * Method for validation of input
+     *
      * @param input Input provide by user
      */
     public static String handleInput(String input) {
@@ -56,6 +59,7 @@ public class ApplicationEntryPoint {
                         CurrencyConverter.divide(amount1, Integer.parseInt(splitNumbers[4]));
             }
         } catch (NumberFormatException ex) {
+            //just print message if error
             return "Exception occurred: " + ex.getMessage();
         }
         return "Unknown input!";
