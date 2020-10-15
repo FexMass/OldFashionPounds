@@ -25,13 +25,17 @@ Format must be followed, othervise error message will appear.
 Overview of exmples and how it should work: 
 
 Example SUM: 5p 17s 8d + 3p 4s 10d= 9p 2s 6d
+
 Example SUBTRACTION: 5p 17s 8d - 3p 4s 10d= 2p 12s 10d
 
 Subtractions giving negative results should be managed.
 
 For multiplication and division no decimal is necessary
+
 Example MULTIPLICATION: 5p 17s 8d * 2 = 11p 15 s 4d
+
 Example DIVISION: 5p 17s 8d / 3 = 1p 19s 2d (2d) (2 pence as remainder - the remainder should be represented between parenthesis)
+
 Another Example DIVISION: 18p 16s 1d / 15 = 1p 5s 0d   (1s 1d) (1 Shillings and 1 penny as remainder - the remainder should be represented between parenthesis)
 
 The library should be able to receive and produce strings in the format "Xp Ys Zd", as in the examples
