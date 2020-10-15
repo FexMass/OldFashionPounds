@@ -11,8 +11,11 @@ Project contains simple mathematical implementation for basic calculation of pou
 Its console application which accept format of entry as follows:
 
 Xp Ys Zd + Xp Ys Zd
+
 Xp Ys Zd - Xp Ys Zd
+
 Xp Ys Zd * multipler
+
 Xp Ys Zd / divider
 
 Permitted operators: + - * /
