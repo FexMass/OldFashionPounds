@@ -46,9 +46,10 @@ Typing exit in console, application will close.
 
 Clone the project to your machine and put it in some directory of preference.
 Executing CMD mvn package for building project dependencies
-mvn clean package
+`mvn clean package`
 
-this packaging is jar, so jar will be created where the project is situated under target folder. To run it navigate to target folder and type: java -jar OldFashionPound-1.0-SNAPSHOT-jar-with-dependencies.jar
+this packaging is jar, so jar will be created where the project is situated under target folder. To run it navigate to target folder and type: 
+`java -jar OldFashionPound-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
 ### Prerequisites
 
@@ -58,7 +59,7 @@ this packaging is jar, so jar will be created where the project is situated unde
 
 ## Running the tests
 
-mvn test
+`mvn test`
 
 ## Notes
 
